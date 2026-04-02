@@ -1,0 +1,26 @@
+# Python
+__pycache__/
+
+
+# OS / Editor
+.vscode/
+
+# Environment
+.env
+.venv/
+.venv-databricks/
+venv/
+
+# Token github 
+Token_
+
+# Data — raw e intermediário ignorados, clean files necessários para o Streamlit
+data/
+!data/vendas_gold.csv
+!data/produtos_clean.csv
+!data/clientes_clean.csv
+
+# PDF
+pdf_assets/
+.databricks/*
+!.databricks/commit_outputs
