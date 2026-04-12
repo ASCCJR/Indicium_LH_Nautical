@@ -14,6 +14,5 @@ venv/
 Token_
 
 # PDF
-pdf_assets/
 .databricks/*
 !.databricks/commit_outputs

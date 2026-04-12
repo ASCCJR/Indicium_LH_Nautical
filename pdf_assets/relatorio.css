@@ -1,0 +1,392 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700;800&family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@400;500&display=swap');
+
+/* ── Variáveis ─────────────────────────────────────── */
+:root {
+  --navy:   #1B2A4A;
+  --ocean:  #2E86AB;
+  --red:    #E74C3C;
+  --green:  #27AE60;
+  --orange: #F39C12;
+  --bg:     #FAFAFA;
+  --text:   #2C3E50;
+  --border: #D5DFE9;
+  --light:  #EEF2F7;
+}
+
+/* ── Base ──────────────────────────────────────────── */
+body {
+  font-family: 'Inter', 'Segoe UI', 'Segoe UI Emoji', 'Apple Color Emoji', 'Noto Color Emoji', sans-serif;
+  color: var(--text);
+  background: #FFFFFF;
+  font-size: 10.5pt;
+  line-height: 1.65;
+  margin: 0;
+  padding: 0;
+}
+
+/* ── Títulos ───────────────────────────────────────── */
+h1 {
+  font-family: 'Montserrat', 'Segoe UI', sans-serif;
+  font-size: 22pt;
+  font-weight: 800;
+  color: var(--navy);
+  border-bottom: 3px solid var(--ocean);
+  padding-bottom: 10px;
+  margin-top: 0;
+  margin-bottom: 20px;
+  letter-spacing: -0.3px;
+}
+
+h2 {
+  font-family: 'Montserrat', 'Segoe UI', sans-serif;
+  font-size: 13pt;
+  font-weight: 700;
+  color: var(--navy);
+  border-left: 4px solid var(--ocean);
+  padding-left: 10px;
+  margin-top: 28px;
+  margin-bottom: 10px;
+  page-break-after: avoid;
+}
+
+h3 {
+  font-family: 'Montserrat', 'Segoe UI', sans-serif;
+  font-size: 11pt;
+  font-weight: 600;
+  color: var(--ocean);
+  margin-top: 18px;
+  margin-bottom: 6px;
+  page-break-after: avoid;
+}
+
+h4 {
+  font-family: 'Montserrat', 'Segoe UI', sans-serif;
+  font-size: 10pt;
+  font-weight: 600;
+  color: var(--navy);
+  margin-top: 14px;
+  margin-bottom: 4px;
+}
+
+/* ── Parágrafo ─────────────────────────────────────── */
+p {
+  margin: 6px 0 10px;
+  text-align: justify;
+}
+
+strong {
+  color: var(--navy);
+  font-weight: 600;
+}
+
+/* ── Tabelas ───────────────────────────────────────── */
+table {
+  width: 100%;
+  border-collapse: collapse;
+  margin: 12px 0 16px;
+  font-size: 9.5pt;
+  page-break-inside: avoid;
+}
+
+thead tr th {
+  background-color: var(--navy);
+  color: #ffffff;
+  font-family: 'Montserrat', sans-serif;
+  font-weight: 600;
+  padding: 8px 11px;
+  text-align: left;
+  letter-spacing: 0.3px;
+}
+
+tbody tr:nth-child(even) td {
+  background-color: var(--light);
+}
+
+tbody tr:hover td {
+  background-color: #DDE8F0;
+}
+
+td {
+  padding: 7px 11px;
+  border-bottom: 1px solid var(--border);
+  vertical-align: top;
+}
+
+/* ── Código inline ─────────────────────────────────── */
+code {
+  font-family: 'JetBrains Mono', 'Consolas', monospace;
+  font-size: 8.5pt;
+  background: var(--light);
+  color: var(--navy);
+  padding: 1px 5px;
+  border-radius: 3px;
+  border: 1px solid var(--border);
+}
+
+/* ── Bloco de código ───────────────────────────────── */
+pre {
+  background: #1B2A4A;
+  color: #C8D8E8;
+  padding: 14px 16px;
+  border-radius: 6px;
+  font-family: 'JetBrains Mono', 'Consolas', monospace;
+  font-size: 8.5pt;
+  line-height: 1.5;
+  overflow-x: auto;
+  page-break-inside: avoid;
+}
+
+pre code {
+  background: none;
+  color: #C8D8E8;
+  padding: 0;
+  border: none;
+  font-size: 8.5pt;
+}
+
+/* ── Blockquote — dicas "Onde capturar" ────────────── */
+blockquote {
+  border: none;
+  background: #E8F4FB;
+  margin: 8px 0 12px;
+  padding: 8px 14px;
+  font-size: 9pt;
+  color: #34495e;
+  border-radius: 4px;
+}
+
+blockquote p {
+  margin: 3px 0;
+}
+
+/* ── Linha horizontal ──────────────────────────────── */
+hr {
+  border: none;
+  border-top: 1px solid var(--border);
+  margin: 22px 0;
+}
+
+/* ── Listas ────────────────────────────────────────── */
+ul, ol {
+  padding-left: 20px;
+  margin: 6px 0 10px;
+}
+
+li {
+  margin-bottom: 4px;
+  line-height: 1.55;
+}
+
+/* ── Imagens ───────────────────────────────────────── */
+img {
+  max-width: 100%;
+  border: 1px solid var(--border);
+  border-radius: 5px;
+  display: block;
+  margin: 10px auto;
+}
+
+/* ── Placeholder [INSERIR IMAGEM] ──────────────────── */
+p:not(:has(img)) > strong:only-child,
+p > em:only-child {
+  display: block;
+}
+
+/* Estiliza parágrafos que começam com [INSERIR */
+p[data-placeholder] {
+  background: var(--light);
+  border: 2px dashed var(--ocean);
+  border-radius: 6px;
+  padding: 24px;
+  text-align: center;
+  color: var(--ocean);
+  font-style: italic;
+  font-size: 9.5pt;
+}
+
+/* ── Front matter (---) ────────────────────────────── */
+.front-matter {
+  background: var(--navy);
+  color: white;
+  padding: 40px;
+  border-radius: 8px;
+  margin-bottom: 30px;
+}
+
+/* ── Capa ───────────────────────────────────────────── */
+.cover-page {
+  page-break-after: always;
+  min-height: 90vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: flex-start;
+  padding: 60px 0 40px;
+}
+
+.cover-badge {
+  font-family: 'Montserrat', sans-serif;
+  font-size: 8pt;
+  font-weight: 700;
+  letter-spacing: 2px;
+  color: var(--ocean);
+  text-transform: uppercase;
+  margin-bottom: 20px;
+  border: 1px solid var(--ocean);
+  padding: 4px 10px;
+  border-radius: 2px;
+  display: inline-block;
+}
+
+.cover-brand {
+  font-family: 'Montserrat', sans-serif;
+  font-size: 11pt;
+  font-weight: 700;
+  color: var(--navy);
+  letter-spacing: 3px;
+  text-transform: uppercase;
+  margin-bottom: 16px;
+  opacity: 0.6;
+}
+
+.cover-title {
+  font-family: 'Montserrat', sans-serif;
+  font-size: 38pt;
+  font-weight: 800;
+  color: var(--navy);
+  line-height: 1.1;
+  margin-bottom: 14px;
+  letter-spacing: -1px;
+}
+
+.cover-subtitle {
+  font-family: 'Inter', sans-serif;
+  font-size: 12pt;
+  color: #5A7090;
+  line-height: 1.6;
+  margin-bottom: 40px;
+}
+
+.cover-divider {
+  width: 60px;
+  height: 4px;
+  background: var(--ocean);
+  margin-bottom: 36px;
+  border-radius: 2px;
+}
+
+.cover-meta {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.cover-meta-row {
+  display: flex;
+  gap: 16px;
+  font-family: 'Inter', sans-serif;
+  font-size: 9.5pt;
+}
+
+.cover-meta-label {
+  color: var(--ocean);
+  font-weight: 600;
+  min-width: 80px;
+}
+
+.cover-meta-value {
+  color: var(--navy);
+}
+
+.cover-meta-value a {
+  color: var(--ocean);
+  text-decoration: none;
+  border-bottom: 1px solid transparent;
+  transition: border-color 0.2s, color 0.2s;
+}
+
+.cover-meta-value a:hover {
+  color: var(--navy);
+  border-bottom-color: var(--ocean);
+}
+
+/* ── Stack de tecnologias na capa ───────────────────── */
+.cover-stack {
+  margin-top: 36px;
+  border-top: 1px solid var(--border);
+  padding-top: 20px;
+  text-align: center;
+  width: 100%;
+  align-self: stretch;
+}
+
+.cover-stack-label {
+  font-family: 'Montserrat', sans-serif;
+  font-size: 7.5pt;
+  font-weight: 700;
+  letter-spacing: 2px;
+  color: #8A9BB0;
+  text-transform: uppercase;
+  margin-bottom: 14px;
+  text-align: center;
+}
+
+.cover-stack-badges {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 14px 12px;
+}
+
+.stack-badge {
+  font-family: 'Montserrat', sans-serif;
+  font-size: 7.5pt;
+  font-weight: 700;
+  letter-spacing: 0.4px;
+  background: var(--navy);
+  color: #FFFFFF;
+  padding: 4px 10px;
+  border-radius: 3px;
+  display: inline-block;
+}
+
+.stack-badge--light {
+  background: var(--light);
+  color: var(--navy);
+  border: 1px solid var(--border);
+}
+
+.stack-item {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 8px;
+}
+
+.stack-logo-box {
+  height: 44px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.stack-logo--featured {
+  max-height: 80px;
+  max-width: 110px;
+  width: auto;
+  border: none;
+  border-radius: 0;
+  margin: 0;
+  display: block;
+  object-fit: contain;
+}
+
+.stack-logo {
+  max-height: 44px;
+  max-width: 90px;
+  width: auto;
+  border: none;
+  border-radius: 0;
+  margin: 0;
+  display: block;
+  object-fit: contain;
+}
