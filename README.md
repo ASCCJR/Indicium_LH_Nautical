@@ -1,4 +1,4 @@
-# LH Nautical — Desafio Técnico Indicium
+<h1 align="center">LH Nautical — Desafio Técnico Indicium</h1>
 
 <p align="center">
   <img src="assets/img/logo_lh_nautical.png" alt="LH Nautical" width="180"/>
