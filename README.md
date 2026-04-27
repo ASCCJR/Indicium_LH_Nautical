@@ -114,4 +114,5 @@ Checks de qualidade com **PASS em 100% das verificações** (notebooks 05 a 10).
 ## Contato
 
 **Autor:** Antonio Sergio Castro de Carvalho Junior
+
 **Repositório:** https://github.com/ASCCJR/Indicium_LH_Nautical
