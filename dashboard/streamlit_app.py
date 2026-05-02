@@ -11,20 +11,33 @@ st.set_page_config(
     layout="wide",
 )
 
-DATA_DIR = Path(__file__).parent.parent / "data"
-REQUIRED_FILES = {
-    "vendas_gold": DATA_DIR / "vendas_gold.csv",
-    "produtos_clean": DATA_DIR / "produtos_clean.csv",
-    "clientes_clean": DATA_DIR / "clientes_clean.csv",
+# Fontes de dados — local-first com fallback pra raw URL do GitHub.
+# Em dev e no Streamlit Cloud (repo clonado), usa o arquivo local em
+# data/silver/ ou data/gold/. Cai pro raw URL quando o repo não está
+# disponível (ex: app rodando isolado fora do checkout).
+GITHUB_RAW = "https://raw.githubusercontent.com/ASCCJR/Indicium_LH_Nautical/main/data"
+LOCAL_DATA = Path(__file__).parent.parent / "data"
+
+_DATA_PATHS = {
+    "vendas_gold": "gold/vendas_gold.csv",
+    "produtos_clean": "silver/produtos_clean.csv",
+    "clientes_clean": "silver/clientes_clean.csv",
 }
 
 
-def _check_files() -> list[str]:
-    missing = []
-    for key, path in REQUIRED_FILES.items():
-        if not path.exists():
-            missing.append(f"{key}: {path}")
-    return missing
+def _resolve(rel_path: str) -> str:
+    local = LOCAL_DATA / rel_path
+    if local.exists():
+        return str(local)
+    return f"{GITHUB_RAW}/{rel_path}"
+
+
+REQUIRED_FILES = {key: _resolve(rel) for key, rel in _DATA_PATHS.items()}
+
+
+def _missing_local_sources() -> list[str]:
+    """Lista CSVs que estão sendo lidos via fallback URL (local não encontrado)."""
+    return [key for key, rel in _DATA_PATHS.items() if not (LOCAL_DATA / rel).exists()]
 
 
 @st.cache_data
@@ -81,12 +94,12 @@ def kpi_row(vendas_f: pd.DataFrame) -> None:
 st.title("LH Nautical — Dashboard Executivo")
 st.caption("Baseado nas camadas clean/gold. Margem = custo USD convertido por câmbio diário PTAX/BCB.")
 
-missing_files = _check_files()
-if missing_files:
-    st.error("Arquivos obrigatórios não encontrados na pasta data.")
-    for item in missing_files:
-        st.write(f"- {item}")
-    st.stop()
+_via_url = _missing_local_sources()
+if _via_url:
+    st.caption(
+        f"ℹ️ Lendo {len(_via_url)} CSV(s) via GitHub raw URL — "
+        "arquivos locais ausentes em `data/silver/` ou `data/gold/`."
+    )
 
 vendas, produtos, clientes = load_data()
 

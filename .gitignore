@@ -1,18 +1,41 @@
 # Python
 __pycache__/
+*.pyc
+.ipynb_checkpoints/
 
-# OS / Editor
-.vscode/
-
-# Environment
-.env
+# Ambiente
 .venv/
 .venv-databricks/
 venv/
+.env
+*.env
 
-# Token github 
+# requirements.txt na raiz nao e versionado (fonte de verdade: pyproject.toml + uv.lock)
+# dashboard/requirements.txt e exceção: necessario para deploy no Streamlit Cloud
+/requirements.txt
+
+# Editor / OS
+.vscode/
+!.vscode/settings.json
+
+# Token GitHub
 Token_
 
-# PDF
+# Databricks (mantém só commit_outputs)
 .databricks/*
 !.databricks/commit_outputs
+
+# Modelos grandes
+models/*.pkl
+models/*.joblib
+
+# Outputs gerados
+outputs/
+
+# Dados — medallion (ignora tudo, exceto os 3 CSVs lidos pelo dashboard via raw URL)
+data/bronze/*
+data/silver/*
+data/gold/*
+!data/silver/produtos_clean.csv
+!data/silver/clientes_clean.csv
+!data/gold/vendas_gold.csv

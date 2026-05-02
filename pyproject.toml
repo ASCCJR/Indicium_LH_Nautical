@@ -1,0 +1,19 @@
+[project]
+name = "indicium-lh-nautical"
+version = "0.1.0"
+description = "Pipeline de dados, análise de rentabilidade, previsão e recomendação para o desafio Indicium / LH Nautical."
+requires-python = ">=3.11,<3.12"
+dependencies = [
+    "databricks-connect==15.4.21",
+]
+
+[dependency-groups]
+dashboard = [
+    "streamlit==1.55.0",
+    "pandas==2.3.3",
+    "plotly==6.6.0",
+]
+dev = [
+    "jupytext>=1.16",
+    "ruff>=0.7",
+]
