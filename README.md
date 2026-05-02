@@ -111,6 +111,40 @@ Checks de qualidade com **PASS em 100% das verificações** (notebooks 05 a 10).
 
 ---
 
+## Setup local
+
+Pré-requisitos: [uv](https://docs.astral.sh/uv/) instalado e Python 3.11.
+
+```bash
+git clone https://github.com/ASCCJR/Indicium_LH_Nautical.git
+cd Indicium_LH_Nautical
+
+# Sincroniza ambiente com todos os grupos (databricks-connect + dashboard + dev)
+uv sync --all-groups
+
+# Roda o dashboard localmente
+uv run streamlit run dashboard/streamlit_app.py
+```
+
+**Estrutura de dependências** ([pyproject.toml](pyproject.toml)):
+
+| Grupo | Pacotes | Quando usar |
+|---|---|---|
+| `[project]` (default) | `databricks-connect` | Notebooks via databricks-connect |
+| `dashboard` | `streamlit`, `pandas`, `plotly` | Rodar o app localmente |
+| `dev` | `jupytext`, `ruff` | Espelhamento .ipynb↔.py e lint |
+
+**Deploy do dashboard (Streamlit Cloud):** o arquivo [`dashboard/requirements.txt`](dashboard/requirements.txt) é versionado especificamente porque o Streamlit Cloud exige esse formato. Ele contém apenas as deps do dashboard (não do projeto inteiro). Para regenerar após mudanças:
+
+```bash
+uv export --format requirements-txt --only-group dashboard --no-hashes \
+  --no-emit-project --no-emit-workspace -o dashboard/requirements.txt
+```
+
+**Notebooks Databricks:** os 10 notebooks rodam no Workspace (auth via extensão Databricks no VS Code). Para desenvolvimento local com databricks-connect, ative o profile já configurado em [`databricks.yml`](databricks.yml).
+
+---
+
 ## Contato
 
 **Autor:** Antonio Sergio Castro de Carvalho Junior
