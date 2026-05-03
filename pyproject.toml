@@ -1,0 +1,9 @@
+[project]
+name = "indicium-lh-nautical"
+version = "0.1.0"
+description = "Add your description here"
+readme = "README.md"
+requires-python = ">=3.11"
+dependencies = [
+    "databricks-connect==15.1.3",
+]
