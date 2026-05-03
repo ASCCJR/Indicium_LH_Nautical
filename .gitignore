@@ -39,3 +39,5 @@ data/gold/*
 !data/silver/produtos_clean.csv
 !data/silver/clientes_clean.csv
 !data/gold/vendas_gold.csv
+
+.databricks
