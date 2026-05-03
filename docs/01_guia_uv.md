@@ -1,1 +1,1 @@
-uv venv --python 3.11
+uv venv --seed --python 3.11
