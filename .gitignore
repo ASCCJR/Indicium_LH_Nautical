@@ -41,3 +41,5 @@ data/gold/*
 !data/gold/vendas_gold.csv
 
 .databricks
+
+.databricks
