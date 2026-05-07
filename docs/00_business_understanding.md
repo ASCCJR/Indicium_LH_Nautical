@@ -129,6 +129,5 @@ Esta é a premissa fundadora do projeto. Toda análise downstream (margem por pr
 |---|---|
 | Resumo executivo e visualizações | [`RELATORIO_EXECUTIVO.md`](../RELATORIO_EXECUTIVO.md) |
 | Visão geral do projeto e dashboard | [`README.md`](../README.md) |
-| Diretrizes técnicas | [`CLAUDE.md`](../CLAUDE.md) (em `~/PROJETOS/`) |
 | Notebooks numerados | [`notebooks/`](../notebooks/) |
 | Dashboard interativo | [`dashboard/streamlit_app.py`](../dashboard/streamlit_app.py) e [streamlit.app público](https://lh-nautical-dashboard.streamlit.app) |
